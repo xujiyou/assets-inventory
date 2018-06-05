@@ -45,7 +45,11 @@ class Define {
   Define(this.place, this.startDate, this.endDate, this.name, this.user);
 
   factory Define.fromJson(Map<String, dynamic> map) {
-    return new Define(map["place"], map["startDate"], map["endDate"], map["name"], map["user"]);
+    List<String> placeList = [];
+    for (dynamic str in map["place"]) {
+      placeList.add(str.toString());
+    }
+    return new Define(placeList, map["startDate"], map["endDate"], map["name"], map["user"]);
   }
 
   @override
